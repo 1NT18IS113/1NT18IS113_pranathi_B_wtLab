@@ -1,0 +1,106 @@
+<!-- Title : To develop a game using Eventlisteners and .remove()  -->
+<!-- Description:"Square Route" is a game where player reaches from start to goal by clicking all square numbers -->
+<!-- Author:Pranathi V  -->
+<!-- Date:17-04-2021 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center><h1>Welcome to The "Square" Route !!</h1></center>
+    <center><h3>1.There are 4 perfect square numbers between Start and Goal.The player has to click them.</h3></center>
+    <center><h3>2.If the player clicks a square of perfect square number then that square disappears.</h3></center>
+    <center><h3>3.If the player clicks any other square nothing will happen.</h3></center>
+    <style>
+        #div{
+        width:20px;
+        padding:50px;
+        background-color: blue;
+        } 
+        #div1 {
+        width: 2cm ;
+        padding: 4cm;  
+        background-color: brown;
+        }
+        #div2{
+        width:20px;
+        padding:50px;
+        background-color: green;
+        }
+        #div3{
+        width:20px;
+        padding:50px;
+        background-color: green;
+        }
+        #div4{
+        width:20px;
+        padding:50px;
+        background-color: green;
+        }
+        #div5{
+        width:20px;
+        padding:50px;
+        background-color: green;
+        }
+        #div6{
+        width:20px;
+        padding:50px;
+        background-color: green;
+        }
+        #div7{
+        width:20px;
+        padding:50px;
+        background-color: green;
+        }
+    </style>
+    <div style="position:fixed;left:10px;top:300px; "  id="div1"><b><h1>Start</h1></b></div> 
+    <div style = "position:fixed; left:1050px; top:300px;" id="div1"><b><h1>Goal</h1></b></div>
+    <div style = "position: fixed;  left: 400px; top: 300px;" id="div2"><h2>4</h2></div>
+    <div style = "position: fixed;  left: 550px; top: 300px;" id="div3"><h2>7</h2></div>
+    <div style = "position: fixed;  left: 700px; top: 300px;" id="div4"><h2>16</h2></div>
+    <div style = "position: fixed;  left: 850px; top: 300px;" id="div5"><h2>8</h2></div>
+
+    <div style = "position: fixed;  left: 400px; top: 500px;" id="div2"><h2>13</h2></div>
+    <div style = "position: fixed;  left: 550px; top: 500px;" id="div6"><h2>36</h2></div>
+    <div style = "position: fixed;  left: 700px; top: 500px;" id="div4"><h2>15</h2></div>
+    <div style = "position: fixed;  left: 850px; top: 500px;" id="div7"><h2>49</h2></div>
+
+    <script>
+        /*let newdiv=document.getElementById('div');
+        newdiv.style.width="50px";
+        newdiv.style.height="50px";
+        newdiv.style.color= blue;
+        document.body.append(newdiv);*/
+        let logArray = [] ;
+        let num4=document.getElementById('div2') ;
+        num4.addEventListener('click',()=>{
+            num4.remove() ;
+            alert("2!!")
+            logArray.push(4) ; 
+            
+        })
+        let num16=document.getElementById('div4') ;
+        num16.addEventListener('click',()=>{
+            num16.remove() ;
+            alert("4 !")
+            logArray.push(16) ;
+        })
+        let num36=document.getElementById('div6') ;
+        num36.addEventListener('click',()=>{
+            num36.remove() ;
+            alert("6 !!")
+            logArray.push(36) ;
+        })
+        let num49=document.getElementById('div7') ;
+        num49.addEventListener('click',()=>{
+            num49.remove() ;
+            alert("7!!")
+            logArray.push(49) ;
+        })
+    </script>
+</body>
+</html>
