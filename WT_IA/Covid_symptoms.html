@@ -1,0 +1,105 @@
+<!-- Title:COVID symptom detection Application -->
+<!-- Description:Take user inputs from web-interface and determine if the user has COVID symptoms or not -->
+<!-- Author:Pranathi V -->
+<!-- Date: 07-07-2021 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pranathi V</h1>
+    <h2>1NT18IS113</h2>
+    <label>Enter your Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <br>
+    <br>
+    <label>Do you have fever ?</label>
+    <input type="text" id="fev" placeholder="Enter Yes/No">
+    <br>
+    <br>
+    <label>Do you have dry cough ?</label>
+    <input type="text" id="cou" placeholder="Enter Yes/No">
+    <br>
+    <br>
+    <label>Do you have tiredness ?</label>
+    <input type="text" id="tir" placeholder="Enter Yes/No">
+    <br>
+    <br>
+    <label>From how many days do you have these symptoms ?</label>
+    <input type="text" id="day" placeholder="Enter Number of days">
+    <br>
+    <br>
+    <button id="submit">Determine</button>
+
+    <p id=p1></p>
+
+    <br>
+    <br>
+    <button id="search">Number of people who have used this app and their details</button>
+
+    <p id=p2></p>
+
+</body>
+<script>
+    let alldetails = [] ;
+    let sub=document.getElementById("submit");
+    sub.addEventListener('click',()=>{
+
+            let uname = document.getElementById("name").value;
+            console.log("Name : ",uname);
+
+            let fevres=document.getElementById("fev").value;
+            console.log("Fever : ",fevres);
+
+            let coures=document.getElementById("cou").value;
+            console.log("Cough : ",coures);
+
+            let tirres=document.getElementById("tir").value;
+            console.log("Tired: ",tirres);
+
+            let dayres=document.getElementById("day").value;
+            console.log("Days : ",dayres);
+
+            let newuserdet = {UserName:uname,
+                Fever: fevres,
+                DryCough: coures,
+                Tired:tirres,
+                Days:dayres 
+            }
+
+            alldetails.push(newuserdet);
+
+            if(fevres=="Yes" && coures=="Yes" && tirres=="Yes" && dayres > 5){
+                const msg = "Yes you have symptoms";
+                document.getElementById("p1").innerHTML = msg ;
+            }
+            else if(fevres=="No" && coures=="Yes" && tirres=="Yes" && dayres > 5){
+                const msg = "No you don't have symptoms because you don't have fever";
+                document.getElementById("p1").innerHTML = msg ;
+            }
+            else if(fevres=="Yes" && coures=="No" && tirres=="Yes" && dayres > 5){
+                const msg = "No you don't have symptoms because you don't have Dry cough";
+                document.getElementById("p1").innerHTML = msg ;
+            }
+            else if(fevres=="Yes" && coures=="Yes" && tirres=="No" && dayres > 5){
+                const msg = "No you don't have symptoms because you don't have tiredness";
+                document.getElementById("p1").innerHTML = msg ;
+            }
+            else{
+                const msg = "No you don't have symptoms because it has not yet been 5 days ";
+                document.getElementById("p1").innerHTML = msg ;
+            }
+            
+        })
+
+        let ppl = document.getElementById("search");
+        ppl.addEventListener('click',()=>{
+            document.getElementById("p2").innerHTML = JSON.stringify(alldetails,null,2)
+        })
+</script>
+</html>
